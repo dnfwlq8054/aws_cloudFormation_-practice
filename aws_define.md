@@ -47,7 +47,7 @@ ConstraintDescription : 제약 조건에 대한 설명이다.
 MinLength/MaxLength : 값에 대하여 제약 조건을 정의할 수 있다.
 
 
-
+<p>
 Lamda 기반 CloudFormation 확장하기 문서
 
 https://aws.amazon.com/ko/blogs/korea/cloudformation-macros/
