@@ -17,8 +17,9 @@ Elastic Load Balancing
 VPC
 Identity and Access Management
 
-
+<pre><code>
 {
+
     "Description" : "이 곳에는 템플릿의 Description을 입력한다.",
   
     "Parameters": {
@@ -34,7 +35,10 @@ Identity and Access Management
     },
   
     "AWSTemplateFormatVersion" : "2010-09-09"
+    
  }
+ </pre></code>
+ 
 
 Description : 각 매개변수의 설명이다.
 
