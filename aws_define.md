@@ -37,10 +37,15 @@ Identity and Access Management
  }
 
 Description : 각 매개변수의 설명이다.
+
 Type : 매개변수 타입이다. Keypair의 Type같이 AWS에서 지정된 타입이 올 수도 있으며 String과 같이 일반 문자열로 정의할 수도 있다.
+
 Default : 매개변수의 기본값이다. Keypair의 경우에는 이미 있는 Key Pair의 이름을 사용하였다.
+
 ConstraintDescription : 제약 조건에 대한 설명이다.
+
 MinLength/MaxLength : 값에 대하여 제약 조건을 정의할 수 있다.
+
 
 
 Lamda 기반 CloudFormation 확장하기 문서
