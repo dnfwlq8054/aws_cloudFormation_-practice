@@ -24,7 +24,7 @@ Identity and Access Management
     "Parameters": {
        // 스택을 생성할 때 사용자가 입력할 매개변수들이다.
     },
-  
+ 
     "Resources" : {
        // AWS 리소스들의 설정 내용 그리고 리소스들간의 관계에 대해 정의할 수 있다.
     },
@@ -49,10 +49,13 @@ MinLength/MaxLength : 값에 대하여 제약 조건을 정의할 수 있다.
 
 
 Lamda 기반 CloudFormation 확장하기 문서
+
 https://aws.amazon.com/ko/blogs/korea/cloudformation-macros/
 
 CloudFormation 으로 CloundWatch의 Alram기능 사용 문서
+
 https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
 
 Using Cloud Watch with Cloud Formation
+
 https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/quickref-cloudwatchlogs.html
