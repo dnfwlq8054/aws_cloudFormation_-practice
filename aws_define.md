@@ -380,6 +380,7 @@ logicalNameOfResource : 원하는 속성을 포함하는 리소스의 논리적 
 
 attributeName : 값을 가져올 리소스 관련 속성의 이름
 
+(쉽게 말해서) logicalNameOfResource객체의 attributeName를 반환한다.
  
 
 - 사용 예제-2 (논리적 이름이 myELB인 로드밸런서의 DNS 이름을 포함하는 문자열을 반환)
@@ -429,7 +430,11 @@ ListOfValues : 결합하려는 값 목록
 출력 결과 - arn:!Ref Partition:s3:::elasticbeanstalk-*-:!Ref ‘AWS::AccountId'
 
  
+ARN
 
+aws의 고유한 리소스라는 뜻.
+
+ IAM(Amazon Relational Database Service) 태그 및 API 호출과 같은 모든 Amazon RDS에서 리소스를 명료하게 지정해야 하는 경우 ARN이 필요합니다.
  
 
 Split 함수
