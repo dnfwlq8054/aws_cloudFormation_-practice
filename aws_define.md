@@ -80,7 +80,7 @@ Ref 함수
 
 - 유사 파라미터라고 하는 AWS가 사전에 정의한 값을 Ref 함수에서 참조할 수 있음
 
-(Ex. < !Ref "AWS::Region > 이라고 하면 CloudFormation이 실행된 리전을 취득 / < !Ref "AWS::AccountId" > 라 하면 실행 계정의 계정 ID를 취득)
+(Ex. < !Ref "AWS::Region > 이라고 하면 CloudFormation이 실행된 리전을 취득 / < !Ref "AWS::AccountId" > 라 하면 실행 계정의 계정 ID를 취득)"
 
  
 
@@ -660,3 +660,12 @@ Resources:
             VpcId: !Ref ExampleVpc
 
 
+    labmda를 생성하는 방법은 2가지가 있다.
+    
+    aws::lambda::function
+    aws::serverless::function
+    
+    lambda function은 일반적인 람다함수 생성으로 룰 같은것들을 지정해줘야한다.
+    
+    serverless 같은경우 ssm기반으로 동작하며, 람다 함수에 대한 event, role등을 직접 정의해줄 수 있다.
+  
