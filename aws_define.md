@@ -669,3 +669,17 @@ Resources:
     
     serverless 같은경우 ssm기반으로 동작하며, 람다 함수에 대한 event, role등을 직접 정의해줄 수 있다.
   
+    
+    airflow 같은 경우에는 내부적으로 sqs, kms를 사용한다.
+    
+    또한 s3 버킷도 사용하는데 이때 앞에 이름을 airflow로 반드시 정해줘야 한다.
+    
+    s3에 dags 디렉토리를 넣어둔 후 그 디렉토리에 실행할 스케줄러 스크립트를 저장하면,
+   
+    알아서 해당 데이터를 가져와 실행시킨다.
+    
+    이때 s3 버킷은 버전관리를 켜줘야한다.(필수다)
+    
+    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
+    
+    해당 documents를 참조하자.
