@@ -683,3 +683,12 @@ Resources:
     https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
     
     해당 documents를 참조하자.
+
+    <h1> cloudFront </h1>
+    cloudfront에서 cache는 일부 지역을 제외하곤 이전버전을 사용하지 못한다.
+    
+    이전 버전에 대한 내용이다.
+    
+    https://aws.amazon.com/ko/elasticache/previous-generation/
+    
+    
