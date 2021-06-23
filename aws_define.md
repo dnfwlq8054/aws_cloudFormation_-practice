@@ -622,7 +622,7 @@ cidrBits : CIDR에 대한 서브넷 비트 수 (해당 파라미터에 대한 �
  
 
 - 사용 예제-3 (IPv6 활성화 서브넷 생성)
-
+```
 Resources:
 
     ExampleVpc:
@@ -659,7 +659,7 @@ Resources:
 
             VpcId: !Ref ExampleVpc
 
-
+```
     labmda를 생성하는 방법은 2가지가 있다.
     
     aws::lambda::function
