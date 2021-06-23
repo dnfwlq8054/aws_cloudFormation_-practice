@@ -660,6 +660,8 @@ Resources:
             VpcId: !Ref ExampleVpc
 
 ```
+    
+    
     labmda를 생성하는 방법은 2가지가 있다.
     
     aws::lambda::function
