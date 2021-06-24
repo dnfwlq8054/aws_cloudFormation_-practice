@@ -693,40 +693,40 @@ cloudfront에서 cache는 일부 지역을 제외하곤 이전버전을 사용�
 이전 버전에 대한 내용이다.
 
 https://aws.amazon.com/ko/elasticache/previous-generation/
-    
-    
-    <h1> aws ElastiCache Redis </h1>
-    
-    aws에서 제공해주는 ElastiCache를 사용하여 좀 더 빠른 처리가 가능하다.
-    
-    사용자는 클러스터 형태, memcached형태로 나눌 수 있으며 클러스터 형태는 스냅샷을 기준으로 데이터를 저장한다.
-    
-    스냅샷을 기준으로 저장할 때에는 S3 버킷에 해당 스냅샷을 넣어두게 되는데, 확장자명은 .rdb로 끝나야 한다.
-    
-    해당 객체를 S3에 저장하면, 각 객체에 대해서 권한을 줘야한다.
-    
-    S3같은 경우 policy를 줘서 해당 객체에 접근 할 수 있도록 해줘야 하고,
-    
-    스냅샷 객체는 피부여자를 추가해 줘야 한다.
-    
-    https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html#backups-seeding-redis-default-region
-    
-    해당 링크에서 확인할 수 있으며, 피부여자 ID는 540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353 로 정의되어야 한다.
-    
-    물론, 특정 리전에 대해선 다르게 줘야하며 이도 해당 링크의 aws documents에 나와있다.
-    
-    cloudformation에 대해선 AWS :: ElastiCache :: ReplicationGroup 를 검색하거나 아래 링크를 클릭하면 된다.
-    
-    https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
-    
-    ElastiCache의 노드를 선정할 때 각 리전마다 지원되는 노드가 있고, 지원 안되는 노드가 있다.
-    
-    이는 AWS에서 지속적인 업데이트를 하면서 이전 세대와 현재 새대를 구분지어 최신화 시키려고 하기 때문이다.
-    
-    https://aws.amazon.com/ko/elasticache/previous-generation/
-    
-    해당 링크를 통해 확인이 가능하니 참고 하도록 하자.
-    
-    <h1> vpn </h2>
-    
+
+
+<h1> aws ElastiCache Redis </h1>
+
+aws에서 제공해주는 ElastiCache를 사용하여 좀 더 빠른 처리가 가능하다.
+
+사용자는 클러스터 형태, memcached형태로 나눌 수 있으며 클러스터 형태는 스냅샷을 기준으로 데이터를 저장한다.
+
+스냅샷을 기준으로 저장할 때에는 S3 버킷에 해당 스냅샷을 넣어두게 되는데, 확장자명은 .rdb로 끝나야 한다.
+
+해당 객체를 S3에 저장하면, 각 객체에 대해서 권한을 줘야한다.
+
+S3같은 경우 policy를 줘서 해당 객체에 접근 할 수 있도록 해줘야 하고,
+
+스냅샷 객체는 피부여자를 추가해 줘야 한다.
+
+https://docs.aws.amazon.com/ko_kr/AmazonElastiCache/latest/red-ug/backups-seeding-redis.html#backups-seeding-redis-default-region
+
+해당 링크에서 확인할 수 있으며, 피부여자 ID는 540804c33a284a299d2547575ce1010f2312ef3da9b3a053c8bc45bf233e4353 로 정의되어야 한다.
+
+물론, 특정 리전에 대해선 다르게 줘야하며 이도 해당 링크의 aws documents에 나와있다.
+
+cloudformation에 대해선 AWS :: ElastiCache :: ReplicationGroup 를 검색하거나 아래 링크를 클릭하면 된다.
+
+https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
+
+ElastiCache의 노드를 선정할 때 각 리전마다 지원되는 노드가 있고, 지원 안되는 노드가 있다.
+
+이는 AWS에서 지속적인 업데이트를 하면서 이전 세대와 현재 새대를 구분지어 최신화 시키려고 하기 때문이다.
+
+https://aws.amazon.com/ko/elasticache/previous-generation/
+
+해당 링크를 통해 확인이 가능하니 참고 하도록 하자.
+
+<h1> vpn </h2>
+
     
