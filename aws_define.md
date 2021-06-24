@@ -728,5 +728,7 @@ https://aws.amazon.com/ko/elasticache/previous-generation/
 해당 링크를 통해 확인이 가능하니 참고 하도록 하자.
 
 <h1> vpn </h2>
-
+aws의 vpn은 virtual private gateway, direct conntion gateway, transit gateway중 한개로 구성된다.
+    
+    
     
