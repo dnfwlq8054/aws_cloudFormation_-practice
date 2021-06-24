@@ -662,37 +662,37 @@ Resources:
 ```
     
     
-    labmda를 생성하는 방법은 2가지가 있다.
-    
-    
-    aws::lambda::function
-    aws::serverless::function
-    
-    lambda function은 일반적인 람다함수 생성으로 룰 같은것들을 지정해줘야한다.
-    
-    serverless 같은경우 ssm기반으로 동작하며, 람다 함수에 대한 event, role등을 직접 정의해줄 수 있다.
-  
-    
-    airflow 같은 경우에는 내부적으로 sqs, kms를 사용한다.
-    
-    또한 s3 버킷도 사용하는데 이때 앞에 이름을 airflow로 반드시 정해줘야 한다.
-    
-    s3에 dags 디렉토리를 넣어둔 후 그 디렉토리에 실행할 스케줄러 스크립트를 저장하면,
-   
-    알아서 해당 데이터를 가져와 실행시킨다.
-    
-    이때 s3 버킷은 버전관리를 켜줘야한다.(필수다)
-    
-    https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
-    
-    해당 documents를 참조하자.
+labmda를 생성하는 방법은 2가지가 있다.
 
-    <h1> cloudFront </h1>
-    cloudfront에서 cache는 일부 지역을 제외하곤 이전버전을 사용하지 못한다.
-    
-    이전 버전에 대한 내용이다.
-    
-    https://aws.amazon.com/ko/elasticache/previous-generation/
+
+aws::lambda::function
+aws::serverless::function
+
+lambda function은 일반적인 람다함수 생성으로 룰 같은것들을 지정해줘야한다.
+
+serverless 같은경우 ssm기반으로 동작하며, 람다 함수에 대한 event, role등을 직접 정의해줄 수 있다.
+
+
+airflow 같은 경우에는 내부적으로 sqs, kms를 사용한다.
+
+또한 s3 버킷도 사용하는데 이때 앞에 이름을 airflow로 반드시 정해줘야 한다.
+
+s3에 dags 디렉토리를 넣어둔 후 그 디렉토리에 실행할 스케줄러 스크립트를 저장하면,
+
+알아서 해당 데이터를 가져와 실행시킨다.
+
+이때 s3 버킷은 버전관리를 켜줘야한다.(필수다)
+
+https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mwaa-environment.html
+
+해당 documents를 참조하자.
+
+<h1> cloudFront </h1>
+cloudfront에서 cache는 일부 지역을 제외하곤 이전버전을 사용하지 못한다.
+
+이전 버전에 대한 내용이다.
+
+https://aws.amazon.com/ko/elasticache/previous-generation/
     
     
     <h1> aws ElastiCache Redis </h1>
@@ -726,3 +726,7 @@ Resources:
     https://aws.amazon.com/ko/elasticache/previous-generation/
     
     해당 링크를 통해 확인이 가능하니 참고 하도록 하자.
+    
+    <h1> vpn </h2>
+    
+    
