@@ -730,5 +730,9 @@ https://aws.amazon.com/ko/elasticache/previous-generation/
 <h1> vpn </h2>
 aws의 vpn은 virtual private gateway, direct conntion gateway, transit gateway중 한개로 구성된다.
     
+    ㄴㅇ;럼ㄴㅇㄹ미
+    ㅁ
+    ㅁ니아럼;ㅣㄴ아ㅓㄹ;ㅁ
+    
     
     
