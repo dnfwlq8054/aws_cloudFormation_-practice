@@ -730,9 +730,20 @@ https://aws.amazon.com/ko/elasticache/previous-generation/
 <h1> vpn </h2>
 aws의 vpn은 virtual private gateway, direct conntion gateway, transit gateway중 한개로 구성된다.
     
-    ㄴㅇ;럼ㄴㅇㄹ미
-    ㅁ
-    ㅁ니아럼;ㅣㄴ아ㅓㄹ;ㅁ
+그리고 클라이언트 쪽은 custom router를 설정해 줘야한다.
+
+<h1> stack set </h1>
+
+StackSet을 사용하면 cloudformation을 사용할 때 다른리전에도 설치가 가능하다.
+때문에 multi region 또는 cross region이라고 한다. 
+
+StackSet은 임시 계정을 생성하여 해당 리전에 그 계정 권한으로 설치를 진행한다. 때문에 stack set을 사용하려면 신뢰관계를 맺어야 한다.
+신뢰관계는 롤을 만들어서 해당 계정 ID랑 맺으면 되는데, cloudformation으로 만들면 다음과 같다.
+
+```
+    
+    
+```
     
     
     
