@@ -740,10 +740,6 @@ StackSet을 사용하면 cloudformation을 사용할 때 다른리전에도 설�
 StackSet은 임시 계정을 생성하여 해당 리전에 그 계정 권한으로 설치를 진행한다. 때문에 stack set을 사용하려면 신뢰관계를 맺어야 한다.
 신뢰관계는 롤을 만들어서 해당 계정 ID랑 맺으면 되는데, cloudformation으로 만들면 다음과 같다.
 
-```
-    
-    
-```
-    
-    
-    
+cloudtrail은 90일 까지만 log를 저장한다.
+cloudtrail에는 백업기능이 있어서, S3에 로그를 저장할 수 있다. cloudtrail - trails로 등록하면 되고 5분 단위로 log가 저장이 된다.
+유저 api호출이 없다면 백업은 하지 않는다.
