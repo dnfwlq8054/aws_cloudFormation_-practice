@@ -745,3 +745,14 @@ cloudtrail에는 백업기능이 있어서, S3에 로그를 저장할 수 있다
 유저 api호출이 없다면 백업은 하지 않는다.
 
 rds 자동 백업(스냅샷) 기능을 해놓으면 rds에 영향을 전혀 주지 않는다.(성능 저하가 없다.)
+
+
+fn::sub 가 있다. 이건 변수들을 받아서 문자열로 반환시켜준다. 아주 유용하게 사용된다.
+https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-sub.html
+
+```yaml
+!Sub: 
+  ${EC2Name}
+  - EC2Name: !Ref MyEC2
+```
+
