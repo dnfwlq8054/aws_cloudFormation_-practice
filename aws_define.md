@@ -756,3 +756,9 @@ https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/intrinsic-f
   - EC2Name: !Ref MyEC2
 ```
 
+AssumeRole
+https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
+https://stackoverflow.com/questions/50082732/what-is-exactly-assume-a-role-in-aws
+
+s3 사용법
+aws s3 {cp, sync, mv} {source} {target}
