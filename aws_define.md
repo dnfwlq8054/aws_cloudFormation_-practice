@@ -762,3 +762,11 @@ https://stackoverflow.com/questions/50082732/what-is-exactly-assume-a-role-in-aw
 
 s3 사용법
 aws s3 {cp, sync, mv} {source} {target}
+
+SCP와 IAM 차이점.
+
+SCP는 계정단위 관리를 한다. SCP안에서도 IAM을 적용시킬 수 있다. 그럼 차이점은 무엇이냐?
+
+계정별로 관리하기 때문에, 계정들 간의 권한을 재약할 수 있다. 예를들어 부서별로 계정을 관리한다면,
+
+각 부서별 계정별로 비용같은 것들을 산출하기 쉬울 것이다. 또한 각 부서별 계정에 권한을 부여하여, 필요한 권한을 갖게끔 설정도 가능하다.
