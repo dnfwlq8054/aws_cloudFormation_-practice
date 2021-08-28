@@ -770,3 +770,21 @@ SCP는 계정단위 관리를 한다. SCP안에서도 IAM을 적용시킬 수 �
 계정별로 관리하기 때문에, 계정들 간의 권한을 재약할 수 있다. 예를들어 부서별로 계정을 관리한다면,
 
 각 부서별 계정별로 비용같은 것들을 산출하기 쉬울 것이다. 또한 각 부서별 계정에 권한을 부여하여, 필요한 권한을 갖게끔 설정도 가능하다.
+
+
+## RDS replica
+RDS 읽기전용 복제본을 만들 수 있다.
+
+기본적으로 Aurora를 사용하면 다른 가용영역에 master/slave로 복제가 되지만, 일반 rds를 생성하면 단일이다.
+
+여기서 복제본을 만들면 똑같이 동기화 되면서 읽기전용 replica가 만들어 진다.
+
+서로 동기화 되며, master rds가 죽으면 replica가 이어서 master가 되는 형식이다.
+
+중요한 점은 cloudformation에서 설정해야할 것이 있는데, 기본적으로 `SourceDBInstanceIdentifier` 를 사용해야 하며,
+
+이걸 사용하게 되면 BackupRetentionPeriod, DBName, MasterUsername, MasterUserPassword, and PreferredBackupWindow 를 상속한다.
+
+또한 이중화를 위해서 다른 가용영역에 만드는 것이 좋으므로 `MultiAZ` 를 true로 설정한다.
+
+reference: https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
