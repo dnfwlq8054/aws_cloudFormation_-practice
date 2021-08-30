@@ -22,3 +22,25 @@ AWS::CloudFormation::Interface는 AWS CloudFormation 콘솔에서 파라미터�
 reference:
 https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-interface.html
 
+example
+```yaml
+Metadata: 
+  AWS::CloudFormation::Interface: 
+    ParameterGroups: 
+      - 
+        Label: 
+          default: "Network Configuration"
+        Parameters: 
+          - VPCID
+          - SubnetId
+          - SecurityGroupID
+      - 
+        Label: 
+          default: "Amazon EC2 Configuration"
+        Parameters: 
+          - InstanceType
+          - KeyName
+    ParameterLabels: 
+      VPCID: 
+        default: "Which VPC should this be deployed to?"
+```
