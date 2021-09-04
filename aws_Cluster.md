@@ -36,17 +36,17 @@ reference : https://docs.aws.amazon.com/ko_kr/AWSCloudFormation/latest/UserGuide
 
 클러스터는 다음 상태 중 하나일 수 있습니다.
 
-ACTIVE
+ACTIVE: 
 클러스터는 해당하는 작업에 적용될 준비가 되었으며, 클러스터로 컨테이너 인스턴스를 등록할 수 있습니다.
 
-PROVISIONING
+PROVISIONING: 
 클러스터에 연결된 용량 공급자가 있으며 용량 공급자에게 필요한 리소스가 생성 중입니다.
 
-DEPROVISIONING(프로비저닝 취소 중)
+DEPROVISIONING(프로비저닝 취소 중): 
 클러스터에 연결된 용량 공급자가 있으며 용량 공급자에게 필요한 리소스를 삭제 중입니다.
 
-FAILED
+FAILED: 
 클러스터에 연결된 용량 공급자가 있으며 용량 공급자에게 필요한 리소스를 생성하는 데 실패했습니다.
 
-INACTIVE
+INACTIVE: 
 클러스터가 삭제되었습니다. INACTIVE 상태인 클러스터는 일정 기간 동안 계정에서 검색 가능한 상태로 유지될 수 있습니다. 하지만 이 동작은 향후 변경될 수 있으므로 INACTIVE 클러스터가 지속되는 상태에 의존해서는 안 됩니다.
