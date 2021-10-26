@@ -1,0 +1,148 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: IaC using vscode in web console. (Cloud Formation).
+
+Parameters:
+  Region:
+    Type: String
+    Default: ap-northeast-2
+    AllowedValues:
+    - ap-northeast-2
+    - ap-northeast-1
+
+  WebVscodeVPCCidr:
+    Type: String
+    Default: 10.111.0.0/16
+    Description: Web vscode VPC cidr
+
+  WebVscodePublicSubnetCidr:
+    Type: String
+    Default: 10.111.8.0/24
+    Description: Web vscode public subnet cidr
+
+Mappings: 
+  AvailabilityZone:
+    Soeul:
+      A: ap-northeast-2a
+      B: ap-northeast-2b
+      C: ap-northeast-2c
+      D: ap-northeast-2d
+    Tokyo:
+      A: ap-northeast-1a
+      B: ap-northeast-1b
+      C: ap-northeast-1c
+      D: ap-northeast-1d
+
+Resources:
+
+  WebVscodeVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: !Ref WebVscodeVPCCidr
+      EnableDnsSupport: true
+      EnableDnsHostnames: false
+      InstanceTenancy: default
+      Tags:
+      - Key: Name
+        Value: Web vscode vpc
+
+  WebVscodeInternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties: 
+      Tags: 
+      - Key: Name
+        Value: Web vscode internet gateway
+
+  WebVscodeInternetGatewayVPCAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties: 
+      InternetGatewayId: !Ref WebVscodeInternetGateway
+      VpcId: !Ref WebVscodeVPC
+
+  WebVscodePublicSubnet:
+    Type: AWS::EC2::Subnet
+    Properties: 
+      AvailabilityZone: !FindInMap [ AvailabilityZone, Soeul, A ]
+      CidrBlock: !Ref WebVscodePublicSubnetCidr
+      Tags: 
+      - Key: Name
+        Value: Web vscode public subnet
+      VpcId: !Ref WebVscodeVPC
+
+  WebVscodePublicSubnetRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref WebVscodeVPC
+      Tags:
+      - Key: Name
+        Value: Web vscode public subnet route table      
+
+  WebVscodePublicSubnetRoute:
+    Type: AWS::EC2::Route
+    Properties: 
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref WebVscodeInternetGateway
+      RouteTableId: !Ref WebVscodePublicSubnetRouteTable
+
+  WebVscodeSubnetRouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties: 
+      RouteTableId: !Ref WebVscodePublicSubnetRouteTable
+      SubnetId: !Ref WebVscodePublicSubnet      
+      
+  WebVscodeSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: Web vscode SG
+      GroupName: Web vscode SG(hwan)
+      SecurityGroupEgress: 
+      - CidrIp: 0.0.0.0/0
+        Description: HTTPS Outbound
+        FromPort: 443
+        IpProtocol: tcp
+        ToPort: 443
+      - CidrIp: 0.0.0.0/0
+        Description: HTTP Outbound
+        FromPort: 80
+        IpProtocol: tcp
+        ToPort: 80     
+      SecurityGroupIngress: 
+      - CidrIp: 0.0.0.0/0
+        Description: SSH Inbound
+        FromPort: 22
+        IpProtocol: tcp
+        ToPort: 22
+      - CidrIp: 0.0.0.0/0
+        Description: HTTPS Outbound
+        FromPort: 443
+        IpProtocol: tcp
+        ToPort: 443
+      - CidrIp: 0.0.0.0/0
+        Description: HTTP Outbound
+        FromPort: 80
+        IpProtocol: tcp
+        ToPort: 80        
+      Tags:
+      - Key: Name
+        Value: Web vscode SG
+      VpcId: !Ref WebVscodeVPC
+
+
+  #   Ec2Instance:
+
+  #   Type: 'AWS::EC2::Instance'
+  #   Properties:
+  #     SecurityGroups:
+  #       - !Ref InstanceSecurityGroup
+  #       - MyExistingSecurityGroup
+  #     KeyName: hwani_key
+  #     ImageId: ami-7a11e213
+  # InstanceSecurityGroup:
+  #   Type: 'AWS::EC2::SecurityGroup'
+  #   Properties:
+  #     GroupDescription: Enable SSH access via port 22
+  #     SecurityGroupIngress:
+  #       - IpProtocol: tcp
+  #         FromPort: '22'
+  #         ToPort: '22'
+  #         CidrIp: 0.0.0.0/0
