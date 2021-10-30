@@ -27,7 +27,7 @@ Parameters:
 
   WebVscodeDomainName:
     Type: String
-    Default: gorani.dev
+    Default: www.gorani.dev
     Description: Your domain name
 
   WebVscodeEamil:
@@ -169,34 +169,39 @@ Resources:
       UserData:
         Fn::Base64: !Sub 
         - |
-          #!/bin/bash -xe
+          #!/bin/bash
           
           apt update
 
-          # install code-server service system-wide
-          curl -fsSL https://code-server.dev/install.sh | sh
-
-          apt update
-
+          # install nginx, certbot ("Let's Encrypt")
           apt install -y nginx certbot python3-certbot-nginx
 
+          # nginx proxy setting
           echo "server {
             listen 80;
             listen [::]:80;
-            server_name mydomain.com;
+            server_name ${DomainName};
 
             location / {
               proxy_pass http://localhost:8080/;
-              proxy_set_header Host $host;
-              proxy_set_header Upgrade $http_upgrade;
+              proxy_set_header Host \$host;
+              proxy_set_header Upgrade \$http_upgrade;
               proxy_set_header Connection upgrade;
               proxy_set_header Accept-Encoding gzip;
             }
           }" >> /etc/nginx/sites-available/code-server
 
-          echo "sudo ln -s ../sites-available/code-server /etc/nginx/sites-enabled/code-server \
-                sudo certbot --non-interactive --redirect --agree-tos --nginx -d ${DomainName} -m ${Email} \
-                systemctl enable --now code-server@ubuntu" >> start.sh && chmod +x start.sh
+          # start vscode-server
+          echo "#!/bin/bash
+
+          curl -fsSL https://code-server.dev/install.sh | sh
+
+          sudo systemctl enable --now code-server@\$USER
+
+          sudo ln -s ../sites-available/code-server /etc/nginx/sites-enabled/code-server
+          sudo certbot --non-interactive --redirect --agree-tos --nginx -d ${DomainName} -m ${Email}
+          sudo nginx -t && sudo systemctl restart nginx
+          sudo systemctl restart code-server@\$USER" >> /home/ubuntu/start.sh && chmod +x /home/ubuntu/start.sh
         - {
             DomainName: !Ref WebVscodeDomainName,
             Email: !Ref WebVscodeEamil
